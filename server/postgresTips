@@ -1,0 +1,15 @@
+//create if not exists
+SELECT 'CREATE DATABASE mydb'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'mydb')\gexec
+
+//linking to the db 
+var sequelize = new Sequelize("DATABASE", "username", "password", {
+  host: "localhost",
+  dialect: "postgres",
+});
+
+//get lis of tables
+"SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND  schemaname != 'information_schema'"
+
+//create DATABASE
+CREATE USER admin WITH PASSWORD 'test101'
